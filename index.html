@@ -1,0 +1,25 @@
+<!DOCTYPWE html>
+<html>
+<head><title>Every tick brings you further and further.</title></head>
+
+<body>
+<center>
+<h1>Time Left:</h1>
+<p id="TimeShow">00:00:00</p>
+<p id ="Code">10*The number of facilities^The count of letters in "Noname"+4/2</p>
+<p id="Link>...</p>
+<script>
+var currentTime = Math.floor(Date.now() / 1000);
+var endTime = 1625422385;
+function toHMS(){
+  var timeLeft = endTime - currentTime;
+  return timeLeft / 3600+":"+timeLeft / 60+":"+timeLeft-(timeLeft / 60);
+}
+while(true){
+  setTimeout(function(){
+    document.getElementById("TimeShow").innerHTML = toHMS();
+}, 1000);
+}
+</script>
+</center>
+</body>
