@@ -1,25 +1,52 @@
-<!DOCTYPWE html>
+<!DOCTYPE HTML>
 <html>
-<head><title>Every tick brings you further and further.</title></head>
-
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
 <body>
-<center>
-<h1>Time Left:</h1>
-<p id="TimeShow">00:00:00</p>
-<p id ="Code">10*The number of facilities^The count of letters in "Noname"+4/2</p>
-<p id="Link>...</p>
+
+<p id="demo"></p>
+<p id="link"></p>
+<p id="pass"></p>
 <script>
-var currentTime = Math.floor(Date.now() / 1000);
-var endTime = 1625422385;
-function toHMS(){
-  var timeLeft = endTime - currentTime;
-  return timeLeft / 3600+":"+timeLeft / 60+":"+timeLeft-(timeLeft / 60);
-}
-while(true){
-  setTimeout(function(){
-    document.getElementById("TimeShow").innerHTML = toHMS();
+// Set the date we're counting down to
+var countDownDate = new Date("Jul 10, 2021 00:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+	document.getElementById("link").innerHTML = "Link: https://mega.nz/file/S85EAKCD#bRvsWQzkzYCStgvoes1lFtC4Y3V5-NO6BJh8mD8tOhA";
+    document.getElementById("pass").innerHTML = "Code: 10*The number of facilities^The count of letters in \"Noname\"+4/2";
+  }
 }, 1000);
-}
 </script>
-</center>
+
 </body>
+</html>
